@@ -20,6 +20,10 @@
         <color rgba="0 0 0 1"/>    
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1"/>    
+    </material>
+
     <!--BASE_LINK-->  
 
     <link name="base_link">
@@ -52,7 +56,13 @@
         <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
             <origin xyz="0.15 0.0 0.075" rpy="0 0 0"/>
         </xacro:inertial_box>
+    
     </link>
+
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
+
 
     <!--LINK_ROUE_GAUCHE_LEFT-->
 
@@ -83,6 +93,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
         <!--LINK_ROUE_droit_RIGHT-->
 
     <joint name="right_wheel_joint" type="continuous">
@@ -112,6 +126,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <!--CASTER_WHEEL_link_pour la roulette-->
 
     <joint name="caster_wheel_joint" type="fixed">
@@ -136,8 +154,11 @@
         <xacro:inertial_sphere mass="0.1" radius="0.05">
             <origin xyz="0 0 0 " rpy="0 0 0"/>
         </xacro:inertial_sphere>
-        
-        
     </link>
 
+    <gazebo reference="caster_wheel">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
 </robot> 
